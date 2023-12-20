@@ -61,6 +61,7 @@ const Navbar = ({ localSomething }: any) => {
       if (response.status === 200) {
         toast.success('Logged In Successfully.');
         login(response);
+        window.location.reload()
       } else {
         setLoading(false);
       }
