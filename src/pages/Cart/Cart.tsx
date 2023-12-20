@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link, useHistory } from 'react-router-dom';
 import { IoMdAddCircleOutline } from "react-icons/io";
@@ -12,29 +12,73 @@ export default function Cart() {
   let [totalCartPrice, setTotalCartPrice] = useState(0);
   const [recommendedSides, setRecommendedSides] = useState([])
   const [cartItems, setCartItems] = useState<any>(JSON.parse(localStorage.getItem('cart_items') as any))
+  const [cart, setCart] = useState<any>([])
   const [config, setConfig] = useState<any>({})
   const [restaurant_id, setRestaurantId] = useState(restaurantData?.restaurant_id)
   const [ tip, setTip ] = useState<any>(0)
   const history = useHistory();
+  const [ enable, setEnable ] = useState<any>(false)
 
-  function incrementCount() {
-    count = count + 1;
-    setCount(count);
+  async function incrementCount(product: any) {
+    await setEnable(true)
+    let duplicateCart = [...cart]
+    let duplicateCartItems = [...cartItems?.cart]
+    let foundedItem = duplicateCart?.find((item: any) => item?.id === product?.id);
+    const foundedItemIndex = duplicateCart?.findIndex((item: any) => item?.id === product?.id);
+
+    duplicateCartItems.push({...foundedItem })
+    await localStorage.setItem('cart_items', JSON.stringify({ user_id: localStorage.getItem('user_id'), cart: duplicateCartItems }))
+
+    setCartItems({ user_id: localStorage.getItem('user_id'), cart: duplicateCartItems})
+
+
+    foundedItem = {
+      ...foundedItem,
+      quantity: foundedItem?.quantity + 1,
+      totalPrice: foundedItem?.totalPrice + foundedItem?.price
+    }
+
+    duplicateCart.splice(foundedItemIndex, 1, foundedItem)
+    setCart(duplicateCart)
+    setEnable(false)
   }
 
-  function incrementItemsCount(e: any) {
+  function incrementItemsCount(product: any) {
     itemsCount = itemsCount + 1;
     setItemsCount(itemsCount);
-    totalCartPrice = totalCartPrice + e
+    totalCartPrice = totalCartPrice + product?.price
     setTotalCartPrice(totalCartPrice)
   }
 
-  function decrementCount() {
-    if(count === 0) {
-      return
+  async function decrementCount(product: any) {
+    await setEnable(true)
+    let duplicateCart = [...cart]
+    let duplicateCartItems = [...cartItems?.cart]
+    let foundedItem = duplicateCart?.find((item: any) => item?.id === product?.id);
+    const foundedItemIndex = duplicateCart?.findIndex((item: any) => item?.id === product?.id);
+
+    if(foundedItem?.quantity > 1) {
+      foundedItem = {
+        ...foundedItem,
+        quantity: foundedItem?.quantity - 1,
+        totalPrice: foundedItem?.totalPrice - foundedItem?.price
+      }
+
+      duplicateCart.splice(foundedItemIndex, 1, foundedItem)
+
+      setCart(duplicateCart)
+    }else {
+      duplicateCart.splice(foundedItemIndex, 1)
+
+      setCart(duplicateCart)
     }
-    count = count - 1;
-    setCount(count);
+
+    let duplicateCartItemsIndex = duplicateCartItems.findIndex((item: any) => item?.id === product.id)
+    duplicateCartItems.splice(duplicateCartItemsIndex, 1)
+
+    setCartItems({ user_id: localStorage.getItem('user_id'), cart: duplicateCartItems})
+    await localStorage.setItem('cart_items', JSON.stringify({ user_id: localStorage.getItem('user_id'), cart: duplicateCartItems }))
+    setEnable(false)
   }
 
   usePopularProducts(
@@ -77,6 +121,34 @@ export default function Cart() {
     setCartItems(({ user_id: localStorage.getItem('user_id'), cart }))
   }
 
+
+  useEffect(() => {
+    const cartItems = JSON.parse(localStorage.getItem('cart_items') as any);
+    const updatedCart:any = [];
+
+    cartItems?.cart?.forEach((product: any) => {
+      let foundedProduct = updatedCart?.find((item: any) => item?.id === product?.id)
+      const foundedProductIndex = updatedCart?.findIndex((item: any) => item?.id === product?.id)
+      if(foundedProductIndex !== -1) {
+        foundedProduct = {
+          ...foundedProduct,
+          quantity: foundedProduct?.quantity + 1,
+          totalPrice: foundedProduct?.price * (foundedProduct?.quantity + 1)
+        }
+
+        updatedCart.splice(foundedProductIndex, 1, foundedProduct)
+      }else {
+        updatedCart.push({
+          ...product,
+          quantity: 1,
+          totalPrice: product?.price
+        })
+      }
+    })
+
+    setCart(updatedCart)
+  }, [])
+
   return (
     <div className='bg-black'>
       <div className="container mx-auto">
@@ -94,7 +166,7 @@ export default function Cart() {
                 <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center text-white">Total</h3>
               </div>
               {
-                cartItems?.cart?.map((item: any) => {
+                cart?.map((item: any) => {
                   return (
                     <>
                       <div className="flex items-center hover:bg-green-700 hover:opacity-90 hover:text-black hover:rounded-md -mx-8 px-6 py-5">
@@ -109,21 +181,23 @@ export default function Cart() {
                         </div>
                         <div className="flex justify-center w-1/5">
                           <button
-                            onClick={incrementCount}
+                            disabled={enable}
+                            onClick={() => incrementCount(item)}
                             className="w-8 h-8 mr-5 border-2 border-gray-300 text-white rounded-md text-gray-600 hover:bg-black focus:outline-none focus:ring focus:border-blue-300"
                           >
                             +
                           </button>
-                          <span className='text-white'>{count}</span>
+                          <span className='text-white'>{item?.quantity}</span>
                           <button
-                            onClick={decrementCount}
+                            disabled={enable}
+                            onClick={() => decrementCount(item)}
                             className="w-8 h-8 ml-5 border-2 border-gray-300 text-white rounded-md text-gray-600 hover:bg-black  focus:outline-none focus:ring focus:border-blue-300"
                           >
                             -
                           </button>
                         </div>
                         <span className="text-center w-1/5 font-semibold text-sm text-white ">{config?.currency_symbol} { item.price }</span>
-                        <span className="text-center w-1/5 font-semibold text-sm text-white">{config?.currency_symbol} { item.price }</span>
+                        <span className="text-center w-1/5 font-semibold text-sm text-white">{config?.currency_symbol} { item.totalPrice.toFixed(2) }</span>
                       </div>
                       <hr className='w-[100%] text-white border-3 border-green-500' />
                     </>
@@ -150,7 +224,7 @@ export default function Cart() {
                       <div
                         key={value.id}
                         className='flex-none w-[170px] md:w-[200px] h-[200px] border-1 border-green-500 rounded-lg cursor-pointer hover:opacity-90 ml-3'
-                        onClick={() => incrementItemsCount(value.price)}
+                        onClick={() => incrementItemsCount(value)}
                       >
                         <div className='grid'>
                           <img
@@ -201,7 +275,7 @@ export default function Cart() {
               <div className='grid'>
                 <div className='flex justify-between mt-4'>
                   <span className='text-bold text-white text-lg'>Items Price</span>
-                  <span className='text-bold text-white text-lg'>{config?.currency_symbol} { cartItems?.cart?.reduce((a: number, item: any) => a + item?.price, 0) }</span>
+                  <span className='text-bold text-white text-lg'>{config?.currency_symbol} { cartItems?.cart?.reduce((a: number, item: any) => a + item?.price, 0).toFixed(2) }</span>
                 </div>
                 <div className='flex justify-between mt-4'>
                   <span className='text-bold text-white text-lg'>Fee & Taxes</span>
