@@ -1,0 +1,42 @@
+.search {
+  margin-bottom: 1rem;
+  height: 45px;
+  width: 87%;
+  border: 1px solid #B1B1B1;
+  font-weight: 400;
+  font-size: 16px;
+  color: #979797;
+  font-family: 'Inter', sans-serif;
+  border-radius: 10px 0 0 10px;
+  padding-left: 3%;
+
+  /* Remove default focus outline */
+  outline: none;
+
+  &:focus-visible {
+    /* Add specific styles for focus-visible state */
+    box-shadow: 0 0 0 1px #B1B1B1; /* Example: custom box shadow on all sides with the color #B1B1B1 */
+  }
+}
+
+.startChatButton {
+  cursor: pointer;
+}
+
+.searchUser{
+  padding: 5px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.searchIcon {
+  position: absolute;
+  padding-left: 0.5%;
+  background: white;
+  height: 49px;
+  border: 1px solid #B1B1B1;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  width: 69px;
+  cursor: pointer;
+}

@@ -1,0 +1,130 @@
+.input{
+  margin-bottom: 1rem;
+  padding-left: 10px;
+  height: 45px;
+  width: 390px;
+  border: 1px solid #B1B1B1;
+  border-radius: 3.44px;
+  /* padding-left:1rem; */
+  font-weight: 400;
+  font-size: 14px;
+  color:#555555;
+  font-family: 'Inter', sans-serif;
+}
+.input:focus{
+  margin-bottom: 1rem;
+  padding-left: 10px;
+  height: 45px;
+  width: 390px;
+  border: 1px solid #B1B1B1;
+  border-radius: 3.44px;
+  /* padding-left:1rem; */
+  font-weight: 400;
+  font-size: 14px;
+  color:#555555;
+  outline: 1px solid #888888; /* Change the color to a greyish shade */
+}
+.title{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0;
+  text-align: left;
+  color:#36373B;
+  width: 50%;
+  display: block;
+  margin-bottom:5px;
+  font-family: 'Inter', sans-serif;
+}
+
+.input-container {
+  position: relative;
+}
+
+.show-password-icon {
+  position: absolute;
+  top: 39%;
+  right: 10px; /* Adjust as needed */
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.mainDiv{
+  display: grid;
+  justify-content: center;
+}
+
+.error-popup {
+  position: absolute;
+  top: -30px; /* Adjust as needed */
+  background-color: #FFEBE6; /* Adjust background color */
+  border: 1px solid #FF5630; /* Adjust border color */
+  padding: 8px 12px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.error-message {
+  color: #FF5630; /* Adjust text color */
+  font-size: 12px; /* Adjust font size */
+  font-weight: 600;
+}
+.checkboxDiv{
+  display: flex;
+  gap:5px
+}
+@media (max-width: 600px) {
+  .checkboxDiv{
+    display: flex;
+    gap: 0
+  }
+  .input {
+    margin-bottom: 1rem;
+    padding-left: 7px;
+    height: 30px;
+    width: 268px;
+    border: 1px solid #B1B1B1;
+    border-radius: 3.44px;
+    /* padding-left:1rem; */
+    font-weight: 400;
+    font-size: 14px;
+    color:#555555;
+    font-family: 'Inter', sans-serif;
+  }
+  .input:focus {
+    margin-bottom: 1rem;
+    padding-left: 7px;
+    height: 30px;
+    width: 268px;
+    border: 1px solid #B1B1B1;
+    border-radius: 3.44px;
+    /* padding-left:1rem; */
+    font-weight: 400;
+    font-size: 14px;
+    color:#555555;
+    font-family: 'Inter', sans-serif;
+  }
+  .title{
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0;
+    text-align: left;
+    color:#36373B;
+    width: 50%;
+    display: block;
+    margin-bottom:5px;
+    font-family: 'Inter', sans-serif;
+  }
+  .mainDiv{
+    display: grid;
+    justify-content: center;
+  }
+  .show-password-icon {
+    position: absolute;
+    top: 35%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}

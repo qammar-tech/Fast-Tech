@@ -1,0 +1,24 @@
+{
+"adminTech":{
+    "sideBar":{
+        "title":"Inventory",
+        "active":true,
+        "icon":"icon",
+        "child":{
+         "title":"Add Inventory",
+         "isOpen":true
+        },
+        "api":{
+            "GET":{
+                "get-invntory":"/read/inventory",
+                "get-count":"/read/count"
+            },
+            "POST":{
+                "get-invntory":"/write/inventory",
+                "get-count":"/write/count"
+            }
+        }
+    }
+}
+
+}

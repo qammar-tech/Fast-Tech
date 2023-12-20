@@ -1,0 +1,125 @@
+.loginImage{
+  position: absolute;
+  top: 25%;
+  left: 5%;
+}
+
+.loginImageText{
+  width: 32rem;
+  color: white;
+}
+
+.forgetPasswordText{
+  font-weight: 400;
+  font-size: 16px;
+  /* margin-left: 6rem; */
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+  color:#828282;
+}
+.disclaimerText{
+  font-weight: 500;
+  font-size: 12px;
+  color:#7A7A7A;
+  /* margin-left: 6rem; */
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+hr{
+  display: none;
+}
+
+.socialIcons{
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.socialMedia{
+  display: none;
+}
+
+.loginText{
+  display: none;
+}
+
+.mainDivInputFields{
+  display: inline-block;
+}
+
+.OR{
+  display: none
+}
+.signUpText{
+  display: none;
+}
+.checkBoxDiv{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.termsText{
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+}
+@media (max-width: 600px) {
+  .checkBoxDiv{
+    display: flex;
+    align-items: center;
+    margin-left: 9%;
+    max-width: 70%;
+  }
+  .termsText{
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+  }
+  .mainDivInputFields{
+    display: block;
+  }
+  .forgetPasswordText{
+    font-size: 12px;
+    margin-bottom: 1rem;
+    color:#828282;
+    font-family: 'Inter', sans-serif;
+  }
+  .signUpText{
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 1.5rem;
+    color:#828282;
+    font-family: 'Inter', sans-serif;
+    display: inline-block;
+    width: 65%;
+  }
+  .disclaimerText{
+    font-size: 10px;
+  }
+  hr{
+    border: 0.6px solid #E5DFDF;
+    margin-top: 1rem;
+    width: 400px;
+    margin-bottom: 1rem;
+  }
+  .OR{
+    display: block;
+    font-family: 'Inter', sans-serif;
+    color:#828282;
+    padding-bottom:1.5rem;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .socialMedia{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-bottom:3rem;
+
+  }
+  .loginText{
+    display: grid;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+  }
+}

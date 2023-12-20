@@ -1,0 +1,43 @@
+.pref-btn{
+  width: 15%;
+  height: 3rem;
+  border-radius: 10px;
+  font-size: 18px;
+  color: white;
+  border: 1px solid green;
+  margin-left: 1rem;
+}
+.pref-focus-btn{
+  width: 15%;
+  height: 3rem;
+  border-radius: 10px;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(2, 173, 2);
+  border: 1px solid green;
+  margin-left: 1rem;
+}
+.time-btn:focus{
+  width: 100px;
+  height: 3rem;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  background-color: rgb(2, 173, 2);
+  border: 1px solid green;
+  margin-left: 1rem;
+}
+.time-btn{
+  width: 100px;
+  height: 3rem;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  border: 1px solid green;
+  margin-left: 1rem;
+}
+.address{
+  background-color: rgb(2, 173, 2);
+  color: white;
+
+}

@@ -1,0 +1,496 @@
+.nav {
+  transition: all 0.2s linear;
+  width: 100%;
+  height: 15.9vh;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position: absolute; */
+  position: fixed;
+  background-color: black;
+  z-index: 20;
+  /* top: 0; */
+  /* position: fixed; */
+
+}
+.nav-active {
+  width: 100%;
+  height: 17.9vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position: static; */
+  top: 0;
+  position: fixed;
+  z-index: 20;
+
+  /* top: 0; */
+  background-color: #3B065E;
+  transition: all 0.2s linear;
+  /* border: 1px solid red; */
+}
+
+.nav-logo-div {
+  width: 120px;
+  height: 90px;
+  margin-left: 60px;
+  margin-top: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  font-size: 30pxy;
+  /* border: 1px solid red; */
+  color: white;
+}
+
+  .nav-logo-r{
+    width: 100px;
+    height: 90px;
+  }
+
+.nav-logoo{
+  width: 100%;
+  height: 100%;
+  /* margin-left: 60px; */
+  margin-top: -15px;
+  /* background-image: url(/src/Navbar/WhatsApp\ Image\ 2023-12-12\ at\ 10.57.52\ AM.jpeg); */
+  background-position: center;
+  color: white;
+
+  /* border: 1px solid red; */
+}
+
+.nav-ul {
+  width: 508px;
+  height: 50px;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  margin-left: -20px;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.ul-div {
+  width: 565px;
+  height: 50px;
+  display: flex;
+  /* border: 1px solid red; */
+}
+li a {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Robotofont, sans-serif;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-li {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: Robotofont, sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-li:hover {
+  transition: all 0.2s linear;
+  /* padding: 10px; */
+  margin-bottom: 5px;
+  border-bottom: 1px solid #FBA504;
+}
+
+.nav-button {
+  width: 126px;
+  height: 42px;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  margin-left: 38px;
+  margin-top: 5px;
+  font-size: 17px;
+  font-weight: 500;
+  font-family: Robotofont, sans-serif;
+  background: none;
+  border: 1px solid white;
+}
+
+.nav-button-active {
+  width: 126px;
+  height: 42px;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  margin-left: 38px;
+  margin-top: 5px;
+  font-size: 17px;
+  font-weight: 500;
+  font-family: Robotofont, sans-serif;
+  /* background: none; */
+  border: 1px solid white;
+  color: #FFFBF4;
+  transition: all 0.2s linear;
+  background-color: #f7a816;
+}
+.sidebar {
+  background-color: #3B065E;
+  color: white;
+}
+
+.canvas-h1-div{
+  width: 100%;
+  height: 8%;
+  border-bottom: 1px solid white;
+  color: white;
+}
+.canvas-h1{
+  font-size: 19px;
+  text-align: left;
+}
+.canvas-phone-div{
+  width: 100%;
+  height: 25%;
+  /* border: 1px solid red; */
+  color: white;
+  margin-top: 4%;
+}
+
+.canvas-phone-h1{
+  font-size: 19px;
+  text-align: left;
+  margin-left: 2%;
+}
+.canvas-phone-input{
+  width: 95%;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 4%;
+  border: 2px solid gray;
+  background: transparent;
+  text-align: left;
+  padding: 1rem;
+  /* margin-left: 2%; */
+}
+.canvas-phone-input:hover{
+  width: 95%;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 4%;
+  border: 2px solid green;
+  background: transparent;
+  text-align: left;
+  padding: 1rem;
+  /* margin-left: 2%; */
+}
+
+.canvas-phone-p1{
+  text-align: left;
+  margin-top: 3%;
+  color: rgb(184, 184, 184);
+
+}
+.canvas-phone-span{
+
+  color: rgb(255, 255, 255);
+
+}
+
+.canvas-phone-div2{
+  width: 100%;
+  height: 27%;
+  /* border: 1px solid red; */
+  color: white;
+  margin-top: -3%;
+}
+
+.canvas-phone-h12{
+  font-size: 19px;
+  text-align: left;
+  margin-left: 2%;
+}
+.canvas-phone-input2{
+  width: 95%;
+  height: 28%;
+  border-radius: 10px;
+  margin-top: 4%;
+  border: 2px solid green;
+  background: transparent;
+  text-align: left;
+  /* margin-left: 2%; */
+}
+.canvas-phone-input2:hover{
+  width: 95%;
+  height: 28%;
+  border-radius: 10px;
+  margin-top: 4%;
+  border: 2px solid gray;
+  background: transparent;
+  text-align: left;
+  /* margin-left: 2%; */
+}
+
+.canvas-phone-p12{
+  text-align: left;
+  margin-top: 6%;
+  color: rgb(184, 184, 184);
+
+}
+.canvas-phone-span2{
+
+  color: rgb(255, 255, 255);
+
+}
+
+.canvas-phone-footer{
+  width: 100%;
+  height: 300px;
+  /* border: 1px solid red; */
+  background-color: rgb(22, 22, 22);
+}
+
+.canvas-footer-h1{
+  font-size: 14px;
+  color: rgb(201, 201, 201);
+  margin-top: 3%;
+}
+
+.canvas-footer-btn{
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 5rem;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(2, 173, 2);
+  border: 1px solid green;
+  cursor: pointer;
+}
+
+.canvas-footer-heading{
+  font-size: 14px;
+  text-align: left;
+  margin-top: 8%;
+  color: rgb(185, 184, 184);
+}
+
+.canvas-h1-div-signup{
+  width: 100%;
+  height: 8%;
+  border-bottom: 1px solid white;
+  color: white;
+}
+.canvas-h1-signup{
+  font-size: 19px;
+  text-align: left;
+}
+.canvas-phone-div-signup{
+  width: 100%;
+  height: 25%;
+  /* border: 1px solid red; */
+  color: white;
+  margin-top: 10%;
+}
+
+.canvas-phone-h1-signup{
+  font-size: 19px;
+  text-align: left;
+  margin-left: 2%;
+}
+.canvas-phone-input-signup{
+  width: 95%;
+  height: 28%;
+  border-radius: 10px;
+  margin-top: 4%;
+  border: 2px solid green;
+  background: transparent;
+  text-align: left;
+  padding: 1rem;
+}
+.canvas-phone-input-signup:hover{
+  width: 95%;
+  height: 28%;
+  border-radius: 10px;
+  margin-top: 4%;
+  border: 2px solid gray;
+  background: transparent;
+  text-align: left;
+  padding: 1rem;
+}
+
+
+
+.canvas-phone-input-signup-opt{
+  width: 70%;
+  text-align: center;
+  height: 40px;
+  /* border-radius: 10px; */
+  margin-top: 4%;
+  border: 2px solid green;
+  background: transparent;
+  text-align: left;
+  /* margin-left: 2%; */
+}
+.canvas-phone-div-signup-otp{
+  width: 80%;
+  height: 25%;
+  /* border: 1px solid red; */
+  color: white;
+  margin-top: 10%;
+  margin-left: 10%;
+  /* border: 1px solid red; */
+}
+
+.canvas-h1-div-signup-otp{
+  width: 100%;
+  height: 8%;
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+
+
+
+.canvas-phone-p1-signup{
+  text-align: left;
+  margin-top: 3%;
+  color: rgb(184, 184, 184);
+
+}
+.canvas-phone-span{
+
+  color: rgb(255, 255, 255);
+
+}
+
+.canvas-phone-div2-signup{
+  width: 100%;
+  height: 27%;
+  /* border: 1px solid red; */
+  color: white;
+  margin-top: -3%;
+}
+
+.canvas-phone-h12-signup{
+  font-size: 19px;
+  text-align: left;
+  margin-left: 2%;
+}
+.canvas-phone-input2-signup{
+  width: 95%;
+  height: 28%;
+  border-radius: 10px;
+  margin-top: 4%;
+  border: 2px solid green;
+  background: transparent;
+  text-align: left;
+  /* margin-left: 2%; */
+}
+
+.canvas-phone-p12-signup{
+  text-align: left;
+  margin-top: 6%;
+  color: rgb(184, 184, 184);
+
+}
+.canvas-phone-span2-signup{
+  color: rgb(255, 255, 255);
+
+}
+.canvas-phone-div2-signup-email{
+  width: 100%;
+  height: 17%;
+  /* border: 1px solid red; */
+  color: white;
+  margin-top: -15%;
+}
+
+.canvas-phone-h12-signup-email{
+  font-size: 19px;
+  text-align: left;
+  margin-left: 2%;
+}
+.canvas-phone-input2-signup-email{
+  width: 95%;
+  height: 42px;
+  border-radius: 10px;
+  margin-top: 4%;
+  border: 2px solid green;
+  background: transparent;
+  text-align: left;
+  /* margin-left: 2%; */
+}
+
+.canvas-phone-fl-name{
+  width: 100%;
+  height: 20%;
+  /* border: 1px solid red; */
+}
+
+.canvas-phone-fl-name-h1{
+  font-size: 19px;
+  text-align: left;
+  margin-left: 2%;
+}
+.canvas-phone-fl-name-first{
+  width: 100%;
+  height: 37px;
+  border-radius: 10px;
+  margin-top: 4%;
+  border: 2px solid green;
+  background: transparent;
+  text-align: left;
+}
+.canvas-footer-btn-signup{
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  /* margin-top: 6%; */
+  font-size: 18px;
+  color: white;
+  background-color: rgb(2, 173, 2);
+  border: 1px solid green;
+  cursor: pointer;
+}
+.canvas-footer-btn-signup:hover {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: white; /* Keep this line if you want to override other text colors */
+  background-color: rgb(2, 173, 2);
+  border: 1px solid green;
+  cursor: pointer;
+}
+
+/* Add the text-white class to apply white text color */
+.canvas-footer-btn:hover.text-white {
+  color: var(--tw-text-opacity, 1); /* Apply the white text color from text-white */
+}
+.canvas-footer-btn:hover {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 5rem;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(2, 173, 2);
+  border: 1px solid green;
+  cursor: pointer; /* Keep this line if you want to override other text colors */
+}
+
+/* Add the text-white class to apply white text color */
+.canvas-footer-btn-signup:hover.text-white {
+  color: var(--tw-text-opacity, 1); /* Apply the white text color from text-white */
+}
+.login-btn{
+  background-color: #02AD02 !important;
+}
+
+.nav-wish-icon{
+  font-size: 37px;
+  cursor: pointer;
+  color: green;
+}

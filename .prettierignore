@@ -1,0 +1,6 @@
+!.jest
+/dist
+/node_modules
+/public
+/generators
+/src/assets

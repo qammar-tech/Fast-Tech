@@ -1,0 +1,28 @@
+.iconsGroup{
+  display: grid;
+  gap: 2rem;
+}
+.iconsGroupMobile{
+  display: none;
+}
+.icons{
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+}
+@media (max-width: 600px) {
+.iconsGroupMobile{
+  display: flex !important;
+  gap: 2.5rem;
+  align-items: center;
+  height: 100%;
+}
+.iconsGroup{
+  display: none;
+}
+.icons{
+  cursor: pointer;
+  height: 32px;
+  width: 33px;
+}
+}

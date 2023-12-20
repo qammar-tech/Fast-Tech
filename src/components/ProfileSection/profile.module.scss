@@ -1,0 +1,108 @@
+.mainDiv{
+  z-index: 100;
+  width: 14rem;
+  height: 25.5rem;
+  position: absolute;
+  margin-left: 11%;
+  top: 7%;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+  background: white;
+}
+.profileDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+.profileText{
+  font-family: 'Lato', 'Helvetica Neue', serif;
+  font-size: 17px;
+  font-weight: 500;
+}
+.profileEmail{
+  font-family: 'Lato', 'Helvetica Neue', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: gray;
+}
+.followers{
+  font-family: 'Lato', 'Helvetica Neue', serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+.followersText{
+  font-family: 'Lato', 'Helvetica Neue', serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+.profileList{
+  border-top: 1px solid #E5DFDF;
+  align-items: center;
+  display: flex;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  cursor: pointer;
+}
+.followersDiv{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.sideBarCard {
+  position: absolute;
+}
+
+.show {
+  position: relative;
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+.mainDiv{
+  z-index: 100;
+  width: 14rem;
+  height: 25.5rem;
+  position: absolute;
+  margin-left: 9%;
+  top: 9%;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+  background: white;
+}
+}
+@media (max-width: 600px) {
+.mainDiv{
+  z-index: 100;
+  width: 19rem;
+  height: 25.5rem;
+  position: relative;
+  top: -193%;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px;
+  background: white;
+}
+.sideBarCard{
+  width: 22vh;
+  background: #FFFFFF;
+  display: block;
+  z-index: 190;
+  position: absolute;
+  height: 79rem;
+  right: 0;
+  top: 0;
+  transition: transform 0.3s ease; /* Apply transition for smooth effect */
+  transform: translateX(100%);
+}
+
+/* Add a class to show the element */
+.show {
+  transform: translateX(0); /* Move it back to the viewport */
+}
+}
