@@ -57,24 +57,26 @@ export default function Checkout() {
     "05:44-05:46",
     "05:46-05:48",
   ]
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
 
-        const response = await GetPaymentCard.mutateAsync();
+  const fetchData = async () => {
+    try {
+      setLoading(true);
 
-        if (response.status === 200) {
-          setPaymentCards(response?.data);
+      const response = await GetPaymentCard.mutateAsync();
 
-        }
-      } catch (error:any) {
-        setLoading(false);
-        toast.error(error?.response?.data?.message);
-        console.log('error', error?.response?.data?.message);
+      if (response.status === 200) {
+        const cardsWithDefault = response?.data?.filter((card: any) => card?.default_card === '1')
+
+        setPaymentCards(cardsWithDefault);
       }
-    };
+    } catch (error:any) {
+      setLoading(false);
+      toast.error(error?.response?.data?.message);
+      console.log('error', error?.response?.data?.message);
+    }
+  };
 
+  useEffect(() => {
     fetchData(); // Invoke the async function immediately
 
     // If you have any dependencies, add them to the dependency array

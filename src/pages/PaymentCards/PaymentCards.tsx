@@ -7,10 +7,11 @@ import '../Checkout/checkout.css'
 import { usePaymentCard , useGetPaymentCard, useDeletePaymentCard} from '@/network/Common/common'
 import { toast, ToastContainer } from 'react-toastify';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import InputMask from 'react-input-mask';
+
 
 export default function PaymentCards() {
   const [address, setAddress] = useState('home')
-  // const [todaySlot, setTodaySlot] = useState('home')
   const [restaurant_id, setRestaurantId] = useState(restaurantData?.restaurant_id)
   const [paymentCards, setPaymentCards] = useState([])
   const history = useHistory();
@@ -34,6 +35,7 @@ export default function PaymentCards() {
       [name]: value,
     }));
   };
+
   const onSubmit = async (e:any) => {
     e.preventDefault();
     try {
@@ -44,7 +46,7 @@ export default function PaymentCards() {
       );
       if (response.status === 200) {
         toast("Card Added Successfully.")
-
+        fetchData()
       }
     } catch (error:any) {
       setLoading(false);
@@ -52,41 +54,42 @@ export default function PaymentCards() {
       console.log('error', error?.response?.data?.message);
     }
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        let data = formData;
 
-        const response = await GetPaymentCard.mutateAsync(formData);
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      let data = formData;
 
-        if (response.status === 200) {
-          setPaymentCards(response?.data);
+      const response = await GetPaymentCard.mutateAsync(formData);
 
-        }
-      } catch (error:any) {
-        setLoading(false);
-        toast.error(error?.response?.data?.message);
-        console.log('error', error?.response?.data?.message);
+      if (response.status === 200) {
+        const cardsWithoutDefault = response?.data?.filter((card: any) => card?.default_card !== '1')
+        setPaymentCards(cardsWithoutDefault);
+
       }
-    };
+    } catch (error:any) {
+      setLoading(false);
+      toast.error(error?.response?.data?.message);
+      console.log('error', error?.response?.data?.message);
+    }
+  };
 
-    fetchData(); // Invoke the async function immediately
+  useEffect(() => {
 
-    // If you have any dependencies, add them to the dependency array
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    fetchData();
+
   }, []);
 
   const deleteCard = async (payment_id:any) => {
     try {
       setLoading(true);
-console.log("-----------",payment_id);
 
       const response = await deletePaymentCard.mutateAsync({payment_id:payment_id});
 
       if (response.status === 200) {
+        toast("Card Deleted Successfully.")
+        fetchData()
         setPaymentCards(response?.data);
-
       }
     } catch (error:any) {
       setLoading(false);
@@ -94,6 +97,7 @@ console.log("-----------",payment_id);
       console.log('error', error?.response?.data?.message?.payment_id);
     }
   };
+
   return (
     <>
       <ToastContainer />
@@ -105,25 +109,27 @@ console.log("-----------",payment_id);
             <div className='col-lg-6 bg-black flex-none bg-black h-[90vh] border-2 border-green-500 rounded-lg'>
                 <div className='p-5 row'>
                     {
-                      paymentCards?.map((value:any,index)=>(
-                        <div className='col-6'>
-                <div className={`flex items-center bg-black p-2 w-[250px] h-[70px] border-2 border-green-500 rounded-lg cursor-pointer`}>
-                  <CiCreditCard1 className={`text-green-500 text-2xl cursor-pointer`} />
-                  <div className='ml-10'>
-                    <span className='text-md text-gray-600 '>
-                      {value.customer_account}
-                      <br />
-                      {value.card_no}
-                    </span>
-                  </div>
-                  <RiDeleteBin6Line onClick={()=>deleteCard(value.payment_id)} className="ml-10 font-semibold hover:text-red-800 text-gray-500 text-2xl cursor-pointer text-red-500" />
-                </div>
+                      paymentCards?.map((value:any,index)=> (
+                        <div className='col-6 mb-4'>
+                          <div className={`flex items-center bg-black p-2 w-[250px] h-[70px] border-2 border-green-500 rounded-lg cursor-pointer`}>
+                            <CiCreditCard1 className={`text-green-500 text-2xl cursor-pointer`} />
+                            <div className='ml-10'>
+                              <span className='text-md text-gray-600 '>
+                                {value.customer_account}
+                                <br />
+                                {value.card_no}
+                              </span>
+                            </div>
+                            <RiDeleteBin6Line 
+                              onClick={()=> deleteCard(value.payment_id)} 
+                              className="ml-10 font-semibold hover:text-red-800 text-gray-500 text-2xl cursor-pointer text-red-500" 
+                            />
+                          </div>
 
-                  </div>
+                        </div>
                       ))
                     }
                   </div>
-
             </div>
             <div className='col-lg-1'>
 
@@ -136,10 +142,19 @@ console.log("-----------",payment_id);
               </div>
               <form className='grid mb-3' onSubmit={onSubmit}>
                 <span className='text-white text-lg mb-1'>Card Number</span>
-              <input className='coupon-input p-3 text-white mb-3' placeholder='4242 4242 4242 4242' type="number"
+                <input className='coupon-input p-3 text-white mb-3' placeholder='4242 4242 4242 4242' type="number"
                   name="card_no"
-                 onChange={handleChange}
+                  onChange={handleChange}
                 />
+
+                {/* <InputMask
+                  className='canvas-phone-input coupon-input p-3 text-white mb-3'
+                  mask="4242 4242 4242 4242"
+                  placeholder='4242424242424242'
+                  type="text"
+                  name="email_or_phone"
+                  onChange={handleChange}
+                /> */}
                 <span className='text-white text-lg mb-1'>Expiry Month</span>
               <input className='coupon-input p-3 text-white mb-3' placeholder='12' type="number"
                   name="exp_month"
