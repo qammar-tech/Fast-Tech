@@ -42,7 +42,7 @@ export default function PaymentCards() {
       setLoading(true);
 
       const response = await paymentCard.mutateAsync(
-        formData,
+        {...formData, card_no: formData.card_no.trim()},
       );
       if (response.status === 200) {
         toast("Card Added Successfully.")
@@ -142,19 +142,15 @@ export default function PaymentCards() {
               </div>
               <form className='grid mb-3' onSubmit={onSubmit}>
                 <span className='text-white text-lg mb-1'>Card Number</span>
-                <input className='coupon-input p-3 text-white mb-3' placeholder='4242 4242 4242 4242' type="number"
+
+                <InputMask
+                  className='canvas-phone-input coupon-input p-3 text-white mb-3'
+                  mask="9999 9999 9999 9999"
+                  placeholder='4242 4242 4242 4242'
+                  type="text"
                   name="card_no"
                   onChange={handleChange}
                 />
-
-                {/* <InputMask
-                  className='canvas-phone-input coupon-input p-3 text-white mb-3'
-                  mask="4242 4242 4242 4242"
-                  placeholder='4242424242424242'
-                  type="text"
-                  name="email_or_phone"
-                  onChange={handleChange}
-                /> */}
                 <span className='text-white text-lg mb-1'>Expiry Month</span>
               <input className='coupon-input p-3 text-white mb-3' placeholder='12' type="number"
                   name="exp_month"
