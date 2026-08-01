@@ -21,7 +21,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.19",
     "@opentok/client": "^2.26.4",
-    "@react-google-maps/api": "^2.19.2",
+    "@react-google-maps/api": "^2.20.8",
     "actioncable": "^5.2.8-1",
     "autoprefixer": "^10.4.16",
     "axios": "^1.6.1",
