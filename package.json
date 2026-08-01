@@ -16,7 +16,7 @@
     "generate:hook": "plop hook --plopfile ./generators/plopfile.cjs"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
+    "@chakra-ui/react": "^3.36.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.19",
